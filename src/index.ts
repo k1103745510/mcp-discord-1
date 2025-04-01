@@ -491,7 +491,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             };
           }
 
+          // 로그인 시도 전 로그
+          console.log("Discord MCP: 로그인 시도 중입니다...");
+
           await client.login(token);
+
+          // 로그인 완료 후 로그
+          console.log(`Discord MCP: 로그인 완료! 봇 태그: ${client.user?.tag}`);
+
           return {
             content: [
               {
